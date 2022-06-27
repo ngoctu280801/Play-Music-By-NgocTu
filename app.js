@@ -70,8 +70,8 @@ const app = {
                     <div class="song" data-index="${index}">
                         <div class="thumb"
                             style="background-image: url('${song.img}')">
-                            <i  class="btn-thumb-pause"></i>
-                            <i class="fa-solid fa-play btn-thumb-play"></i>
+                            <i  class="btn-thumb-pause"  title="Pause"></i>
+                            <i class="fa-solid fa-play btn-thumb-play" title="Play"></i>
                         </div>
                         <div class="body">
                             <h3 class="title">${song.name}</h3>
