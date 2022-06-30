@@ -63,6 +63,18 @@ const app = {
             path: "./assets/music/TheLuong-PhucChinh-6971140.mp3",
             img: "./assets/img/TheLuong.jpg"
         },
+        {
+            name: "Cô Đơn Dành Cho Ai",
+            singer: "LeeKen x Nal",
+            path: "./assets/music/CoDonDanhChoAi.mp3",
+            img: "./assets/img/CoDonDanhChoAi.jpg"
+        },
+        {
+            name: "Chiều Thu Họa Bóng Nàng",
+            singer: "DATKAA x QT BEATZ",
+            path: "./assets/music/ChieuThuHoaBongNang.mp3",
+            img: "./assets/img/ChieuThuHoaBongNang.jpg"
+        },
     ],
     render: function () {
         const htmls = this.songs.map((song, index) => {
