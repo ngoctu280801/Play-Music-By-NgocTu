@@ -28,52 +28,76 @@ const app = {
     },
     songs: [
         {
-            name: "Đào Nương",
-            singer: "Hoàng Vương",
-            path: "./assets/music/DaoNuong-HoangVuong-7037330.mp3",
-            img: "./assets/img/DaoNuong.jpg"
+            name: "Dù Cho Mai về Sau",
+            singer: "buitruonglinh x Freak D",
+            path: "./assets/music/DuChoMaiVeSau.mp3",
+            img: "./assets/img/DuChoMaiVeSau.jpg"
         },
         {
-            name: "Đâu Ai Chung Tình Được Mãi",
-            singer: "Đinh Tùng Huy",
-            path: "./assets/music/AiChungTinhDuocMai-DinhTungHuyACV-7197858.mp3",
-            img: "./assets/img/DauAiChungTinhDuocMai.jpg"
+            name: "Ngày Đầu Tiên",
+            singer: "Đức Phúc",
+            path: "./assets/music/NgayDauTien.mp3",
+            img: "./assets/img/NgayDauTien.jpg"
         },
         {
-            name: "Đế Vương",
-            singer: "Đình Dũng",
-            path: "./assets/music/DeVuong-DinhDungACV-7121634.mp3",
-            img: "./assets/img/DeVuong.jpg"
+            name: "Rung Động",
+            singer: "DƯƠNG EDWARD x VŨ KHẮC ANH",
+            path: "./assets/music/RungDong.mp3",
+            img: "./assets/img/RungDong.jpg"
         },
         {
-            name: "Phận Duyên Lỡ Làng",
-            singer: "Phát Huy",
-            path: "./assets/music/PhanDuyenLoLang-PhatHuyT4Trugz-7004538.mp3",
-            img: "./assets/img/PhanDuyenLoLang.jpg"
+            name: "Đường Tôi Chở Em Về",
+            singer: "Buitruonglinh",
+            path: "./assets/music/DuongToiChoEmVe.mp3",
+            img: "./assets/img/DuongToiChoEmVe.jpg"
         },
         {
-            name: "See Tình",
-            singer: "Hoàng Thùy Linh",
-            path: "./assets/music/SeeTinh-HoangThuyLinh-7195809.mp3",
-            img: "./assets/img/SeeTinh.jpg"
+            name: "Có Hẹn Với Thanh Xuân",
+            singer: "Monstar",
+            path: "./assets/music/CoHenVoiThanhXuan.mp3",
+            img: "./assets/img/CoHenVoiThanhXuan.jpg"
         },
         {
-            name: "Thê Lương",
-            singer: "Phúc Chinh",
-            path: "./assets/music/TheLuong-PhucChinh-6971140.mp3",
-            img: "./assets/img/TheLuong.jpg"
+            name: "Gác Lại Âu Lo",
+            singer: "DALAB",
+            path: "./assets/music/GacLaiAuLo.mp3",
+            img: "./assets/img/GacLaiAuLo.jpg"
         },
         {
-            name: "Cô Đơn Dành Cho Ai",
-            singer: "LeeKen x Nal",
-            path: "./assets/music/CoDonDanhChoAi.mp3",
-            img: "./assets/img/CoDonDanhChoAi.jpg"
+            name: "Em Thích",
+            singer: "SEAN X LỬA",
+            path: "./assets/music/EmThich.mp3",
+            img: "./assets/img/EmThich.jpg"
         },
         {
-            name: "Chiều Thu Họa Bóng Nàng",
-            singer: "DATKAA x QT BEATZ",
-            path: "./assets/music/ChieuThuHoaBongNang.mp3",
-            img: "./assets/img/ChieuThuHoaBongNang.jpg"
+            name: "Phố Đã Lên Đèn",
+            singer: "Huyền Tâm Môn",
+            path: "./assets/music/PhoDaLenDen.mp3",
+            img: "./assets/img/PhoDaLenDen.jpg"
+        },
+        {
+            name: "Thức Giấc",
+            singer: "Da LAB",
+            path: "./assets/music/ThucGiac.mp3",
+            img: "./assets/img/ThucGiac.jpg"
+        },
+        {
+            name: "Thở",
+            singer: "Da LAB X Juky San",
+            path: "./assets/music/Tho.mp3",
+            img: "./assets/img/Tho.jpg"
+        },
+        {
+            name: "Sinh Ra Đã Là Thứ Đối Lập Nhau",
+            singer: "EMCEE L x BADBIES",
+            path: "./assets/music/SinhRaDaLaThuDoiLapNhau.mp3",
+            img: "./assets/img/SinhRaDaLaThuDoiLapNhau.jpg"
+        },
+        {
+            name: "Em Đã Có Người Mới",
+            singer: "Tóc Tiên",
+            path: "./assets/music/EmDaCoNguoiMoi.mp3",
+            img: "./assets/img/EmDaCoNguoiMoi.jpg"
         },
     ],
     render: function () {
