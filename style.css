@@ -143,7 +143,7 @@
   
   /* PLAYLIST */
   .playlist {
-    margin-top: 408px;
+    margin-top: 448px;
     padding: 12px;
   }
 
@@ -264,5 +264,32 @@
   }
   .active-song{
     border: 1px solid var(--primary-color);
+  }
+  .btn-group{
+    z-index: 999;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .btn-group .btn-item{
+    font-size: 16px;
+    border: none;
+    background-color: #fff;
+    font-weight: 600;
+  }
+  .btn-group .btn-item:hover{
+    cursor: pointer;
+  }
+
+  .btn-group .btn-item.active{
+    color: var(--primary-color);
+    border-bottom: 4px solid var(--primary-color); ;
+  }
+  .lyrics{
+    margin-top: 448px;
+    padding: 12px;
+    display: none;
+    background-color: #fff;
   }
   
