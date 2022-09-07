@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #ec1f55;
-  --text-color: #333;
+  --primary-color: #4ad295;
+  --text-color: #374957;
 }
 
 * {
@@ -20,7 +20,7 @@ html {
 
 .player {
   position: relative;
-  max-width: 480px;
+  max-width: 390px;
   margin: 0 auto;
 }
 
@@ -42,7 +42,7 @@ html {
   position: fixed;
   top: 0;
   width: 100%;
-  max-width: 480px;
+  max-width: 390px;
   border-bottom: 1px solid #ebebeb;
   z-index: 1000;
 }
@@ -50,24 +50,37 @@ html {
 /* HEADER */
 header {
   text-align: center;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 header h4 {
-  color: var(--primary-color);
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #5f7d95;
 }
 
 header h2 {
   color: var(--text-color);
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
 }
 
 /* CD */
+.container-cd {
+  border-top: 5px solid #4ad295;
+  border-left: 5px solid #4ad295;
+  width: fit-content;
+  margin-bottom: 8.25px;
+  border-radius: 50%;
+  display: flex;
+  margin: auto;
+}
 .cd {
   display: flex;
   margin: auto;
-  width: 200px;
+  width: 192px;
+  padding: 8px;
 }
 
 .cd-thumb {
@@ -79,24 +92,52 @@ header h2 {
   margin: auto;
 }
 
-/* CONTROL */
-.control {
+/* time */
+
+.time {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 18px 0 18px 0;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400;
+  gap: 76px;
+  color: #374957;
+  margin-bottom: 21px;
+  margin-top: 4px;
+}
+
+/* CONTROL */
+
+.container-control {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  /* padding: 18px 0 18px 0; */
 }
 
 .control .btn {
-  color: #666;
-  padding: 18px;
-  font-size: 18px;
+  color: #1d262d;
+  /* padding: 18px; */
+  font-size: 25px;
+}
+
+.control .btn.btn-repeat,
+.control .btn.btn-random {
+  color: #5f7d95;
 }
 .control .btn:hover {
   border-radius: 50%;
-  background-color: #ccc;
+  /* background-color: #ccc; */
   line-height: 54px;
   cursor: pointer;
+  opacity: 0.7;
 }
 
 .control .btn.active {
@@ -104,24 +145,24 @@ header h2 {
 }
 
 .control .btn-toggle-play {
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  font-size: 24px;
-  color: #fff;
+  font-size: 18px;
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-color);
+  background-color: #08192b;
 }
 .control .btn-toggle-play:hover {
-  background-color: var(--primary-color);
+  background-color: #08192b;
   opacity: 0.7;
 }
 
 .containner-progress {
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
 }
 
@@ -147,8 +188,9 @@ header h2 {
 
 /* PLAYLIST */
 .playlist {
-  margin-top: 448px;
-  padding: 12px;
+  margin-top: 450px;
+  padding: 16px;
+  background-color: #fff;
 }
 
 .thumb {
@@ -159,19 +201,21 @@ header h2 {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
-  background-color: #fff;
-  padding: 8px 16px;
-  border-radius: 5px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  padding: 8px 14px 8px 12px;
+  border-radius: 36px;
+  /* box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); */
   transition: all 0.5s ease 0s;
+  background: #eff3f6;
+  border: none;
 }
 .active-song,
 .song:hover {
   /* box-shadow: 1px 3px 95px -19px rgb(0 0 0 / 63%);
   -webkit-box-shadow: 1px 3px 95px -19px rgb(0 0 0 / 63%);
   -moz-box-shadow: 1px 3px 95px -19px rgba(0, 0, 0, 0.63); */
-  transform: scale(1.05);
-  border: 1px solid #e5e5e5;
+  transform: scale(1.03);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* border: 1px solid #e5e5e5; */
 }
 
 .btn-thumb-play,
@@ -209,25 +253,25 @@ header h2 {
   } */
 
 .song.active {
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .song:active {
   opacity: 0.8;
 }
 
-.song.active .option,
+.song.active .watch-list,
 .song.active .author,
 .song.active .title {
   color: #fff;
 }
 
 .song .thumb {
-  width: 44px;
-  height: 44px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   background-size: cover;
-  margin: 0 8px;
 }
 .song .thumb:hover {
   opacity: 0.5;
@@ -235,20 +279,25 @@ header h2 {
 }
 .song .body {
   flex: 1;
-  padding: 0 16px;
+  padding: 0 12px;
 }
 
 .song .title {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 15px;
   color: var(--text-color);
+  line-height: 24px;
+  margin-bottom: 2px;
 }
 
 .song .author {
   font-size: 12px;
-  color: #999;
+  color: #5f7d95;
+  line-height: 16px;
 }
 
-.song .option {
+.song .watch-list {
   padding: 16px 8px;
   color: #999;
   font-size: 18px;
@@ -256,36 +305,60 @@ header h2 {
   width: 40px;
   height: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: all 0.5s ease 0.2s;
 }
-.song .option:hover {
-  background-color: #ccc;
-  color: #fff;
+.song .watch-list:hover {
+  /* background-color: #ccc; */
+  /* color: #fff; */
+  cursor: pointer;
 }
+
+.song .watch-list .watch-list__time {
+  font-size: 12px;
+  font-weight: 400;
+  color: #5f7d95;
+}
+
+.watch-list-active {
+  color: #ec3a3b;
+}
+
 .active-song {
-  border: 1px solid #e5e5e5;
+  /* border: 1px solid #e5e5e5; */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
+.active-song .title,
+.active-song .watch-list {
+  color: #4ad295 !important;
+}
+
 .btn-group {
   z-index: 999;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 8px;
 }
 .btn-group .btn-item {
   font-size: 16px;
   border: none;
   background-color: #fff;
-  font-weight: 600;
-}
-.btn-group .btn-item:hover {
+  font-weight: 400;
+  padding: 4px 16px;
   cursor: pointer;
+  line-height: 24px;
+  color: #5f7d95;
+  border: 0.5px solid #5f7d95;
+  border-radius: 16px;
+  width: 84px;
 }
 
 .btn-group .btn-item.active {
   color: var(--primary-color);
+  background: #08192b;
   /* border-bottom: 4px solid var(--primary-color); */
 }
 .lyrics {
