@@ -14,6 +14,7 @@ const nextBtn = document.querySelector(".btn-next");
 const prevBtn = document.querySelector(".btn-prev");
 const repeatBtn = document.querySelector(".btn-repeat");
 const randomBtn = document.querySelector(".btn-random");
+const btnWatchList = document.querySelector(".show-watch-list");
 const progressInput = document.querySelector("#progress");
 const playlist = document.querySelector(".playlist");
 const lyrics = document.querySelector(".lyrics");
@@ -22,6 +23,7 @@ const app = {
   isRepeate: false,
   isPlaying: false,
   isRandom: false,
+  isWatchList: false,
   config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
   setConfig: function (key, value) {
     this.config[key] = value;
@@ -436,12 +438,32 @@ const app = {
       }
     });
   },
+  loadSongsInWatchList: function () {
+    const watchList = this.getWatchList();
+    const songs = document.querySelectorAll(".song");
+    if (watchList.length > 0) {
+      if (this.isWatchList) {
+        songs.forEach((song, index) => {
+          if (!watchList.includes(index)) {
+            song.style.display = "none";
+          }
+        });
+      }
+    } else {
+      if (this.isWatchList) {
+        playlist.innerHTML = "Không có bài hát yêu thích";
+        playlist.style = "text-align: center";
+      }
+    }
+  },
   loadConfig: function () {
     this.isRandom = this.config.isRandom || false;
     this.isRepeate = this.config.isRepeat || false;
     this.currentIndex = this.config.currentIndex || 0;
+    this.isWatchList = this.config.isWatchList || false;
     repeatBtn.classList.toggle("active", this.isRepeate);
     randomBtn.classList.toggle("active", this.isRandom);
+    btnWatchList.classList.toggle("active", this.isWatchList);
   },
   nextSong: function () {
     if (this.currentIndex === this.songs.length - 1) {
@@ -902,6 +924,30 @@ const app = {
         lyrics.innerHTML = this.songs[app.currentIndex].lyric;
       }
     });
+    btnWatchList.addEventListener("click", function (e) {
+      const watchList = app.getWatchList();
+      const songs = document.querySelectorAll(".song");
+      if (btnWatchList.classList.contains("active")) {
+        btnWatchList.classList.remove("active");
+        app.setConfig("isWatchList", false);
+        songs.forEach((song, index) => {
+          if (!watchList.includes(index)) {
+            song.style.display = "flex";
+          }
+        });
+      } else {
+        btnWatchList.classList.add("active");
+        app.setConfig("isWatchList", true);
+        // app.songs = app.songs.filter((song, index) => {
+        //   return watchList.includes(index);
+        // });
+        songs.forEach((song, index) => {
+          if (!watchList.includes(index)) {
+            song.style.display = "none";
+          }
+        });
+      }
+    });
   },
 
   defineProperties: function () {
@@ -918,6 +964,9 @@ const app = {
     this.defineProperties();
     //ném dữ liệu
     this.render();
+
+    //load danh sách yêu thích
+    this.loadSongsInWatchList();
     //nhạc
     this.loadCurrentSong();
 
