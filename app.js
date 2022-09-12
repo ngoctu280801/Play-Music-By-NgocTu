@@ -1,6 +1,7 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 const PLAYER_STORAGE_KEY = "NGOCTU_PLAYER";
+const WATCH_LIST_KEY = "WATCH_LIST_KEY";
 
 const singer = document.querySelector("header h4");
 const name = document.querySelector("header h2");
@@ -26,6 +27,17 @@ const app = {
     this.config[key] = value;
     console.log("config: " + JSON.stringify(this.config));
     localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
+    // localStorage.setItem(
+    //   "WATCH_LIST_KEY",
+    //   JSON.stringify([1, 2, 5, 7, 0].sort())
+    // );
+    // console.log(JSON.parse(localStorage.getItem(WATCH_LIST_KEY)) || []);
+  },
+  setWatchList: function (watchLists) {
+    localStorage.setItem("WATCH_LIST_KEY", JSON.stringify(watchLists.sort()));
+  },
+  getWatchList: function () {
+    return JSON.parse(localStorage.getItem(WATCH_LIST_KEY)) || [];
   },
   songs: [
     {
@@ -414,6 +426,15 @@ const app = {
       document.querySelector(".total").innerText = time;
       console.log(time);
     };
+  },
+  loadWatchList: function () {
+    const watchListArr = this.getWatchList();
+    const ic = document.querySelectorAll(".ic");
+    ic.forEach((item, index) => {
+      if (watchListArr.includes(index)) {
+        item.classList.add("watch-list-active");
+      }
+    });
   },
   loadConfig: function () {
     this.isRandom = this.config.isRandom || false;
@@ -849,6 +870,13 @@ const app = {
       watchList.onclick = function (e) {
         e.stopPropagation();
         const ic = watchList.querySelector(".ic");
+        let watchListArr = app.getWatchList();
+        if (ic.classList.contains("watch-list-active")) {
+          watchListArr = watchListArr.filter((item) => item !== i);
+        } else {
+          watchListArr.push(i);
+        }
+        app.setWatchList(watchListArr);
         ic.classList.toggle("watch-list-active");
       };
     }
@@ -893,6 +921,8 @@ const app = {
     //nhạc
     this.loadCurrentSong();
 
+    //load watchlist
+    this.loadWatchList();
     //xử lí hiện thời gian tổng
     this.getTotalTimes();
 
